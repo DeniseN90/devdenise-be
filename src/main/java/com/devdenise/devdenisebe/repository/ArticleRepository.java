@@ -12,7 +12,9 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 
 
     @Query("SELECT a.title, a.outline FROM Article a")
-    List<Object> getArticlesOutlines();
+    List<Article> getArticlesOutlines();
+
+
 
 
 
