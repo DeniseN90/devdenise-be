@@ -15,12 +15,15 @@ import java.util.List;
 public class Article extends BaseArticle<Article> {
 
 
-
-
-    @Column(columnDefinition="TEXT")
-    private String text;
-
-    @Column(columnDefinition = "TEXT[]")
+    @Column(columnDefinition="TEXT[]")
     @ElementCollection(targetClass=String.class)
+    @CollectionTable(name = "article_sections", joinColumns = @JoinColumn(name = "article_id"))
+    private List<String> sections;
+
+    @Column(columnDefinition = "TEXT[]" )
+    @ElementCollection(targetClass=String.class)
+    @CollectionTable(name = "article_resources", joinColumns = @JoinColumn(name = "article_id"))
     private List<String> resources;
+
+
 }
