@@ -23,7 +23,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://devdenise.com", maxAge = 3600)
+@CrossOrigin(origins = "https://devdenise.com/", maxAge = 3600)
 @RestController
 public class DevDeniseController {
 
