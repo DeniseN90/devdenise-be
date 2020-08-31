@@ -5,6 +5,7 @@ import com.devdenise.devdenisebe.model.Article;
 import com.devdenise.devdenisebe.model.ArticleCard;
 import com.devdenise.devdenisebe.model.Project;
 import com.devdenise.devdenisebe.service.DevDeniseService;
+import com.devdenise.devdenisebe.utils.ControllerUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -22,7 +23,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class DevDeniseController {
 
@@ -40,7 +41,7 @@ public class DevDeniseController {
     public ResponseEntity<List<ArticleCard>> getArticlesOutline(){
         log.debug("REST request to get articles cards");
         try {
-            return ResponseEntity.ok().body(devDeniseService.getArticlesCards());
+            return ResponseEntity.ok().headers(ControllerUtil.getHeaders()).body(devDeniseService.getArticlesCards());
         } catch (Exception e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Articles abstract not found");
         }
@@ -58,7 +59,7 @@ public class DevDeniseController {
         log.debug("REST request to get article by id");
         //TODO headers
         try {
-            return ResponseEntity.ok().body(devDeniseService.getArticle(id));
+            return ResponseEntity.ok().headers(ControllerUtil.getHeaders()).body(devDeniseService.getArticle(id));
         } catch (Exception e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Article with id %d not found", id));
         }
@@ -73,7 +74,7 @@ public class DevDeniseController {
         log.debug("REST request to get all the projects");
         //TODO headers
         try {
-            return ResponseEntity.ok().body(devDeniseService.getProjects());
+            return ResponseEntity.ok().headers(ControllerUtil.getHeaders()).body(devDeniseService.getProjects());
         }catch (Exception e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Projects not found");
         }

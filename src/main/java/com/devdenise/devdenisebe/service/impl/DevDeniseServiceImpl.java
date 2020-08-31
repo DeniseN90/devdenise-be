@@ -4,7 +4,7 @@ import com.devdenise.devdenisebe.model.Article;
 import com.devdenise.devdenisebe.model.ArticleCard;
 import com.devdenise.devdenisebe.model.Project;
 import com.devdenise.devdenisebe.repository.ArticleRepository;
-import com.devdenise.devdenisebe.repository.ArticlesOutlinesRepository;
+import com.devdenise.devdenisebe.repository.ArticleCardRepository;
 import com.devdenise.devdenisebe.repository.ProjectRepository;
 import com.devdenise.devdenisebe.service.DevDeniseService;
 import org.slf4j.Logger;
@@ -26,13 +26,13 @@ public class DevDeniseServiceImpl implements DevDeniseService {
     private ProjectRepository projectRepository;
 
     @Autowired
-    private ArticlesOutlinesRepository articlesOutlinesRepository;
+    private ArticleCardRepository articlesCardsRepository;
 
 
     @Override
     public List<ArticleCard> getArticlesCards() {
-        log.info(articlesOutlinesRepository.findAll().toString());
-        return articlesOutlinesRepository.findAll();
+        log.info(articlesCardsRepository.findAll().toString());
+        return articlesCardsRepository.findAll();
     }
 
     @Override
