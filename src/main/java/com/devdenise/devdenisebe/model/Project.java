@@ -29,4 +29,7 @@ public class Project implements Serializable {
     @Column
     private String imageLink;
 
+    @Column
+    private String description;
+
 }

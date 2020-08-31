@@ -16,14 +16,14 @@ public class Article extends BaseArticle<Article> {
 
 
     @Column(columnDefinition="TEXT[]")
-    @ElementCollection(targetClass=String.class)
-    @CollectionTable(name = "article_sections", joinColumns = @JoinColumn(name = "article_id"))
+    @OneToMany(mappedBy = "article", targetEntity = ArticleSection.class, fetch = FetchType.LAZY)
     private List<String> sections;
 
-    @Column(columnDefinition = "TEXT[]" )
-    @ElementCollection(targetClass=String.class)
-    @CollectionTable(name = "article_resources", joinColumns = @JoinColumn(name = "article_id"))
+    @Column(columnDefinition="TEXT[]")
+    @OneToMany(mappedBy = "article", targetEntity = ArticleResource.class, fetch = FetchType.LAZY)
     private List<String> resources;
+
+
 
 
 }
