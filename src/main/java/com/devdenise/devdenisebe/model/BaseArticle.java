@@ -3,6 +3,7 @@ package com.devdenise.devdenisebe.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @MappedSuperclass
 @NoArgsConstructor
@@ -14,7 +15,7 @@ public class BaseArticle<T extends BaseArticle> {
 
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    private Long id;
+    private UUID id;
 
     @Column
     private String title;

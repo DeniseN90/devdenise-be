@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +17,7 @@ public class ArticleSection {
 
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    private Long id;
+    private UUID id;
 
     @Column(columnDefinition="TEXT")
     private String section;
