@@ -6,7 +6,7 @@ public class ControllerUtil {
 
     public static HttpHeaders getHeaders(){
         HttpHeaders headers = new HttpHeaders();
-        headers.setAccessControlAllowOrigin("https://devdenise.com/");
+        headers.setAccessControlAllowOrigin("https://devdenise.com");
         return headers;
     }
 }
